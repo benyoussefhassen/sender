@@ -119,12 +119,12 @@ jobs:
           } >> reports/RAPPORT_TECHNIQUE.md
 
 
-                - name: Publier les rapports et les sources décompilées
-                  uses: actions/upload-artifact@v4
-                  with:
-                    name: sender-pro-analyse-complete-v3
-                    path: |
-                      reports/
-                      decompiled/
-                    if-no-files-found: error
-                    retention-days: 14
+      - name: Publier les rapports et les sources décompilées
+        uses: actions/upload-artifact@v4
+        with:
+          name: sender-pro-analyse-complete-v3
+          path: |
+            reports/
+            decompiled/
+          if-no-files-found: error
+          retention-days: 14
