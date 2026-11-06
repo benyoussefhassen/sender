@@ -1,0 +1,100 @@
+AreFileApisANSI
+adb server port
+write server log to file instead of stderr, increases log level to INFO
+..\..\chrome\test\chromedriver\server\chromedriver_server.cc
+RunServer
+Unable to start server with either IPv4 or IPv6. Exiting...
+host-serial:
+ANDROID_SERIAL
+. Is the adb server running? Extra response: <
+Runtime.consoleAPICalled
+console-api
+BiDi tunnel is already set up in this client
+BiDi server can only be started by a page client
+BiDi server setup requires existing connection
+attaching non-null DevToolsClient to a new parent is prohibited
+DevToolsClientImpl can be attached only to a root client
+..\..\chrome\test\chromedriver\chrome\devtools_client_impl.cc
+virtual void DevToolsClientImpl::AddListener(DevToolsEventListener *)
+ subscribing a listener to the already connected DevToolsClient.
+unable to send BiDi commands without BiDi server session id
+unable to deserialize the BiDi payload
+http://
+..\..\chrome\test\chromedriver\chrome\devtools_http_client.cc
+clientHints
+malformed clientHints: should be a dictionary
+No 'clientHints' found. Emulation might be inadequate. 
+Inferring clientHints as: 
+unable to construct userAgent without client hints
+malformed clientHints.mobile: should be a boolean
+malformed clientHints.platform: should be a string
+malformed clientHints.platformVersion: should be a string
+malformed clientHints.architecture: should be a string
+malformed clientHints.model: should be a string
+malformed clientHints.bitness: should be a string
+malformed clientHints.wow64: should be a boolean
+BLOCKED_BY_CLIENT
+SSL_CLIENT_AUTH_CERT_NEEDED
+PROXY_AUTH_UNSUPPORTED
+BAD_SSL_CLIENT_AUTH_CERT
+PROXY_AUTH_REQUESTED
+SSL_CLIENT_AUTH_PRIVATE_KEY_ACCESS_DENIED
+SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY
+SSL_CLIENT_AUTH_SIGNATURE_FAILED
+CLIENT_AUTH_CERT_TYPE_UNSUPPORTED
+SSL_SERVER_CERT_CHANGED
+SSL_CLIENT_AUTH_CERT_BAD_FORMAT
+SSL_SERVER_CERT_BAD_FORMAT
+UNABLE_TO_REUSE_CONNECTION_FOR_PROXY_AUTH
+SSL_CLIENT_AUTH_NO_COMMON_ALGORITHMS
+CERT_AUTHORITY_INVALID
+UNEXPECTED_PROXY_AUTH
+INVALID_AUTH_CREDENTIALS
+UNSUPPORTED_AUTH_SCHEME
+MISSING_AUTH_CREDENTIALS
+MISCONFIGURED_AUTH_ENVIRONMENT
+HTTP2_SERVER_REFUSED_STREAM
+PROXY_AUTH_REQUESTED_WITH_NO_CONNECTION
+CACHE_AUTH_FAILURE_AFTER_READ
+IMPORT_SERVER_CERT_FAILED
+DNS_SERVER_REQUIRES_TCP
+DNS_SERVER_FAILURE
+?cannot serialize the argument as JSON
+serialization
+serializationOptions
+result.deepSerializedValue.value
+result.deepSerializedValue.value list is missing or empty in Runtime.callFunctionOn response
+first element in result.deepSerializedValue.value list must be a dictionary
+first element in result.deepSerializedValue.value list must contain a string
+cannot deserialize the result value received from Runtime.callFunctionOn
+deserialized Runtime.callFunctionOn result is not a dictionary
+expires
+serialized node is not a dictionary
+..\..\chrome\test\chromedriver\log_replay\replay_http_client.cc
+..\..\chrome\test\chromedriver\net\adb_client_socket.cc
+ADB server responded with "OKAYOKAY" instead of "OKAY".
+Error: ADB server responded without the expected hexstring
+function() { // Copyright 2012 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+ * @param {!Array<*>} nodes List of serialized nodes
+ * @param {!Array<*>} nodes List of serialized nodes
+function serializationGuard(object) {
+      // The only remaining case when a client tries to access a method is a
+ * serialized string representing that element.
+ * @param {!Array<*>} nodes List of serialized nodes
+  // Any other function must be serialized as an object.
+    return serializationGuard(ret);
+    return serializationGuard(ret);
+  return serializationGuard(
+ * Returns deserialized deep clone of given value, replacing serialized string
+ * Returns deserialized deep clone of given value, replacing serialized string
+    const errorResponse = serializationGuard({
+function() { // Copyright 2013 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+function() { // Copyright 2019 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+* in the W3C WebDriver spec, except for serialization/deserialization of args,
+function() { // Copyright 2013 The Chromium Authors

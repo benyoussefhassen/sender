@@ -1,0 +1,26 @@
+extracted/Sender Pro Data/.playwright/node/win32_x64/node.exe
+extracted/Sender Pro Data/.playwright/package/bin/PrintDeps.exe
+extracted/Sender Pro Data/Chrome/145.0.7632.117/X64/chromedriver.exe
+extracted/Sender Pro Data/Chrome/145.0.7632.46/X64/chromedriver.exe
+extracted/Sender Pro Data/New folder/.playwright/node/win32_x64/node.exe
+extracted/Sender Pro Data/New folder/.playwright/package/bin/PrintDeps.exe
+extracted/Sender Pro Data/New folder/Sender Pro.exe
+extracted/Sender Pro Data/New folder/chromedriver.exe
+extracted/Sender Pro Data/Sender Pro.exe
+extracted/Sender Pro Data/SenderProRecorderX64/SenderProScreenRecorder.exe
+extracted/Sender Pro Data/SenderProRecorderX86/SenderProScreenRecorder.exe
+extracted/Sender Pro Data/chromedriver.exe
+extracted/Sender Pro Data/geckodriver.exe
+extracted/Sender Pro DataAnalysis/Sender Pro Data Analysis.exe
+extracted/Sender Pro Launcher Updater.exe
+extracted/Sender Pro Launcher.exe
+extracted/Sender Pro Marketing/.playwright/node/win32_x64/node.exe
+extracted/Sender Pro Marketing/.playwright/package/bin/PrintDeps.exe
+extracted/Sender Pro Marketing/Sender Pro.exe
+extracted/Sender Pro Marketing/SenderProDownloader/64.exe
+extracted/Sender Pro Marketing/SenderProDownloader/86.exe
+extracted/Sender Pro Marketing/SenderProRecorderX64/SenderProScreenRecorder.exe
+extracted/Sender Pro Marketing/SenderProRecorderX86/SenderProScreenRecorder.exe
+extracted/Sender Pro Marketing/chromedriver.exe
+extracted/Sender Pro Marketing/geckodriver.exe
+extracted/Sender Pro Marketing/selenium-manager/windows/selenium-manager.exe

@@ -1,0 +1,100 @@
+AreFileApisANSI
+adb server port
+write server log to file instead of stderr, increases log level to INFO
+..\..\chrome\test\chromedriver\server\chromedriver_server.cc
+RunServer
+unauthorized access from 
+Unauthorized access
+Unable to start server with either IPv4 or IPv6. Exiting...
+host-serial:
+ANDROID_SERIAL
+. Is the adb server running? Extra response: <
+.exceptionThrownRuntime.exceptioconsoleAPICalledRuntime.consoleALog.enable
+console-api
+BiDi tunnel is already set up in this client
+BiDi server can only be started by a page client
+BiDi server setup requires existing connection
+attaching non-null DevToolsClient to a new parent is prohibited
+DevToolsClientImpl can be attached only to a root client
+..\..\chrome\test\chromedriver\chrome\devtools_client_impl.cc
+Resetting listeners for already connected DevToolsClient. Some listeners might end-up working incorrectly.
+virtual void DevToolsClientImpl::AddListener(DevToolsEventListener *)
+ subscribing a listener to the already connected DevToolsClient.
+uanble to send BiDi commands without BiDi server session id
+unable to deserialize the BiDi payload
+http://
+..\..\chrome\test\chromedriver\chrome\devtools_http_client.cc
+BLOCKED_BY_CLIENT
+SSL_CLIENT_AUTH_CERT_NEEDED
+PROXY_AUTH_UNSUPPORTED
+BAD_SSL_CLIENT_AUTH_CERT
+PROXY_AUTH_REQUESTED
+SSL_CLIENT_AUTH_PRIVATE_KEY_ACCESS_DENIED
+SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY
+SSL_CLIENT_AUTH_SIGNATURE_FAILED
+CLIENT_AUTH_CERT_TYPE_UNSUPPORTED
+SSL_SERVER_CERT_CHANGED
+SSL_CLIENT_AUTH_CERT_BAD_FORMAT
+SSL_SERVER_CERT_BAD_FORMAT
+UNABLE_TO_REUSE_CONNECTION_FOR_PROXY_AUTH
+SSL_CLIENT_AUTH_NO_COMMON_ALGORITHMS
+CERT_AUTHORITY_INVALID
+UNEXPECTED_PROXY_AUTH
+INVALID_AUTH_CREDENTIALS
+UNSUPPORTED_AUTH_SCHEME
+MISSING_AUTH_CREDENTIALS
+MISCONFIGURED_AUTH_ENVIRONMENT
+HTTP2_SERVER_REFUSED_STREAM
+PROXY_AUTH_REQUESTED_WITH_NO_CONNECTION
+HTTP2_CLAIMED_PUSHED_STREAM_RESET_BY_SERVER
+HTTP2_CLIENT_REFUSED_STREAM
+CACHE_AUTH_FAILURE_AFTER_READ
+IMPORT_SERVER_CERT_FAILED
+DNS_SERVER_REQUIRES_TCP
+DNS_SERVER_FAILED
+cannot serialize the argument as JSON
+expires
+..\..\chrome\test\chromedriver\log_replay\replay_http_client.cc
+..\..\chrome\test\chromedriver\net\adb_client_socket.cc
+ADB server responded with "OKAYOKAY" instead of "OKAY".
+Error: ADB server responded without the expected hexstring
+function() { // Copyright 2012 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+ * serialized string representing that element.
+function jsonSerialize(item, seen) {
+  // http://crbug.com/chromedriver/2995: Placed here because some element
+  // TODO(crbug.com/1337415): Implement WindowProxy serialization.
+    return cloneWithCircularCheck(item, seen, jsonSerialize);
+  return cloneWithCircularCheck(item, seen, jsonSerialize);
+ * Returns deserialized deep clone of given value, replacing serialized string
+ * @param {?Cache} opt_cache Document cache containing serialized elements.
+function jsonDeserialize(item, opt_seen, opt_cache) {
+    return cloneWithAlgorithm(item, opt_seen, jsonDeserialize, opt_cache);
+    const unwrappedArgs = jsonDeserialize(args, [], cache);
+      const clone = jsonSerialize(result, []);
+function() { // Copyright 2013 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+function() { // Copyright 2019 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+* in the W3C WebDriver spec, except for serialization/deserialization of args,
+function() { // Copyright 2013 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+function() { // Copyright 2019 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+  var parentRect = getFirstNonZeroWidthHeightRect(parent.getClientRects());
+  var rectangles = element.getClientRects();
+         element.parentElement.getClientRects().length > 0) {
+  var clientRects = element.getClientRects();
+  if (clientRects.length === 0) {
+function() { // Copyright 2013 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+// returned by element.getClientRects function.
+// relative to the upper-left corner of the element's bounding client rect (as
+// returned by element.getBoundingClientRect).
+  // We try 2 methods to determine element region. Try the first client rect,

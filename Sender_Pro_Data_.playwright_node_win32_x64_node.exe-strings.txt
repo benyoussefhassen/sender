@@ -1,0 +1,100 @@
+t,ATAPI
+ t+PASAPI
+t:ATAPI
+t6ATAPI
+t6ATAPI
+t+WRAPI
+:authoriH;
+authorizH;
+API+AHH
+API+AHH
+  // AST walker module for Mozilla Parser API compatible trees
+  // to do something with all expressions. All Parser API node types
+//(https://github.com/acornjs/acorn/blob/master/acorn/src/identifier.js#L23
+// MIT License
+// Copyright (C) 2012-2018 by various contributors (see AUTHORS)
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      let escaping = false;
+          if (c === "]" && sawStart && !escaping) {
+            if (!escaping) {
+              escaping = true;
+          if (c === "[" && !escaping) {
+          escaping = false;
+        let escaping = false;
+            if (escaping || c === "\\") {
+              escaping = !escaping;
+          if (escaping || c === "\\") {
+            escaping = !escaping;
+        let escaping = false;
+          if (escaping) {
+            escaping = false;
+              escaping = true;
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// Surprisingly, this is still API compatible as far as third parties are
+// ClientRequest.onSocket(). The Agent is now *strictly*
+  // Legacy API: addRequest(req, host, port, localAddress)
+  normalizeServerName(options, req);
+  normalizeServerName(options, req);
+function normalizeServerName(options, req) {
+  if (!options.servername && options.servername !== '')
+    options.servername = calculateServerName(options, req);
+function calculateServerName(options, req) {
+  let servername = options.host;
+        servername = hostHeader;
+        servername = StringPrototypeSubstring(hostHeader, 1, index);
+      servername = StringPrototypeSplit(hostHeader, ':', 1)[0];
+  // Don't implicitly set invalid (IP) servernames.
+  if (net.isIP(servername))
+    servername = '';
+  return servername;
+    debug('CLIENT socket onFree');
+    debug('CLIENT socket onClose');
+    debug('CLIENT socket onTimeout');
+    debug('CLIENT socket onRemove');
+        const serverHintTimeout = NumberParseInt(hint) * 1000;
+        if (serverHintTimeout < agentTimeout) {
+          agentTimeout = serverHintTimeout;
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  hasObserver,
+const kClientRequestStatistics = Symbol('ClientRequestStatistics');
+const onClientRequestStartChannel = dc.channel('http.client.request.start');
+const onClientResponseFinishChannel = dc.channel('http.client.response.finish');
+const HTTP_CLIENT_TRACE_EVENT_NAME = 'http.client.request';
+class HTTPClientAsyncResource {
+function ClientRequest(input, options, cb) {
+      // Refs: https://github.com/nodejs/node/pull/30958
+      // https://tools.ietf.org/html/rfc3986#section-3.2.2
+    if (options.auth && !this.getHeader('Authorization')) {
+      this.setHeader('Authorization', 'Basic ' +
+                     Buffer.from(options.auth).toString('base64'));
+      debug('CLIENT use net.createConnection', optsWithoutSignal);
+ObjectSetPrototypeOf(ClientRequest.prototype, OutgoingMessage.prototype);
+ObjectSetPrototypeOf(ClientRequest, OutgoingMessage);
+ClientRequest.prototype._finish = function _finish() {
+  if (hasObserver('http')) {
+    startPerf(this, kClientRequestStatistics, {
+      name: 'HttpClient',
+  if (onClientRequestStartChannel.hasSubscribers) {
+    onClientRequestStartChannel.publish({
+    traceBegin(HTTP_CLIENT_TRACE_EVENT_NAME, this._traceEventId);
+ClientRequest.prototype._implicitHeader = function _implicitHeader() {
+ClientRequest.prototype.abort = function abort() {
+ClientRequest.prototype.destroy = function destroy(err) {
+             // the server will send a final response after this client
+// client
+function parserOnIncomingClient(res, shouldKeepAlive) {
+    // We already have a response object, this means the server
+    // Server MUST respond with Connection:keep-alive for us to enable it.
+  if (req[kClientRequestStatistics] && hasObserver('http')) {
+    stopPerf(req, kClientRequestStatistics, {
+  if (onClientResponseFinishChannel.hasSubscribers) {
+    onClientResponseFinishChannel.publish({
+    traceEnd(HTTP_CLIENT_TRACE_EVENT_NAME, req._traceEventId, {
+// client
+// from the server before we finish sending out the request.
+                    new HTTPClientAsyncResource('HTTPINCOMINGMESSAGE', req),
+  parser.onIncoming = parserOnIncomingClient;
+ClientRequest.prototype.onSocket = function onSocket(socket, err) {

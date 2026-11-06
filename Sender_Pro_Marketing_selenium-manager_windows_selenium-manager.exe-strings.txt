@@ -1,0 +1,100 @@
+AuthentiH1
+CliBROWSERBrowser name (chrome, firefox, edge, or iexplorer)DRIVERDriver name (chromedriver, geckodriver, msedgedriver, or IEDriverServer)DRIVER_VERSIONDriver version (e.g., 106.0.5249.61, 0.31.0, etc.)driver-versionBROWSER_VERSIONMajor browser version (e.g., 105, 106, etc. Also: beta, dev, canary -or nightly- is accepted)browser-versionBROWSER_PATHBrowser path (absolute) for browser version detection (e.g., /usr/bin/google-chrome, "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")browser-pathOUTPUTOutput type: LOGGER (using INFO, WARN, etc.), JSON (custom JSON notation), or SHELL (Unix-like)LOGGERPROXYHTTP proxy for network connection (e.g., https://myproxy.net:8080)TIMEOUTTimeout for network requests (in seconds)Display DEBUG messagesDisplay TRACE messagesCLEAR_CACHEClear driver cacheclear-cacheAutomated driver management for Selenium1.0.0-M3Selenium Manager is a CLI tool that automatically manages the browser/driver infrastructure required by Selenium.
+Fatal internal error. Please consider filing a bug report at https://github.com/clap-rs/clap/issuesC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\clap-4.1.3\src\builder\arg.rs
+{usage-heading} {usage}{after-help}binauthorauthor-with-newlineauthor-sectionaboutabout-with-newlineabout-sectionusage-headingUsage:usageall-argsoptionspositionalssubcommandstabafter-helpbefore-help{n}Commands:
+sending PUSH_PROMISE to peer who disabled server pushsending SETTINGS before received previous ACKsend_ping before received previous pongpoll_reset after send_response is illegalrequest URI missing scheme and authoritymalformed headersstream ID overflowedrelease capacity too bigrejectedpayload too bigunexpected frame typeinactive stream
+:status:protocol:path:scheme:method:authorityC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\h2-0.3.15\src\hpack\huffman\mod.rs
+PeerDisabledServerPushSendSettingsWhilePendingSendPingWhilePendingPollResetAfterSendResponseMissingUriSchemeAndAuthorityMalformedHeadersOverflowedStreamIdReleaseCapacityTooBigPayloadTooBigUnexpectedFrameTypeInactiveStreamIdoffset
+<unknown status code>InvalidStatusCodeinvalid status codeC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\http-0.2.8\src\uri\authority.rs
+scheme too longempty stringuri too longpath missingauthority missingscheme missinginvalid formatinvalid portinvalid authorityinvalid schemeinvalid uri characterC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\http-0.2.8\src\version.rs
+Network Authentication RequiredNot ExtendedLoop DetectedInsufficient StorageVariant Also NegotiatesHTTP Version Not SupportedGateway TimeoutService UnavailableBad GatewayNot ImplementedInternal Server ErrorUnavailable For Legal ReasonsRequest Header Fields Too LargeToo Many RequestsPrecondition RequiredUpgrade RequiredFailed DependencyLockedUnprocessable EntityMisdirected RequestI'm a teapotExpectation FailedRange Not SatisfiableUnsupported Media TypeURI Too LongPayload Too LargePrecondition FailedLength RequiredGoneConflictRequest TimeoutProxy Authentication RequiredNot AcceptableMethod Not AllowedNot FoundForbiddenPayment RequiredUnauthorizedBad RequestPermanent RedirectTemporary RedirectUse ProxyNot ModifiedSee OtherFoundMoved PermanentlyMultiple ChoicesIM UsedAlready ReportedMulti-StatusPartial ContentReset ContentNo ContentNon Authoritative InformationCreatedOKProcessingSwitching ProtocolsInvalidUri
+SchemeTooLongTooLongPathAndQueryMissingAuthorityMissingSchemeMissingInvalidFormatInvalidAuthorityInvalidSchemeInvalidUriChar
+x-xss-protectionx-frame-optionsx-dns-prefetch-controlx-content-type-optionswww-authenticatewarningviavaryupgrade-insecure-requestsupgradeuser-agenttransfer-encodingtrailertestrict-transport-securityset-cookieserversec-websocket-versionsec-websocket-protocolsec-websocket-keysec-websocket-extensionssec-websocket-acceptretry-afterrefreshreferrer-policyrefererrangepublic-key-pins-report-onlypublic-key-pinsproxy-authorizationproxy-authenticatepragmaoriginmax-forwardslocationlinklast-modifiedif-unmodified-sinceif-rangeif-none-matchif-modified-sinceif-matchfromforwardedexpiresexpectetagdatedntcookiecontent-typecontent-security-policy-report-onlycontent-security-policycontent-rangecontent-locationcontent-lengthcontent-languagecontent-encodingcontent-dispositionconnectioncache-controlauthorizationalt-svcallowaccess-control-request-methodaccess-control-request-headersaccess-control-max-ageaccess-control-expose-headersaccess-control-allow-originaccess-control-allow-methodsaccess-control-allow-headersaccess-control-allow-credentialsaccept-rangesaccept-languageaccept-encodingaccept-charsetaccept
+http2 errorerror shutting down connectionerror writing a body to connectionerror reading a body from connectionerror trying to connectconnection errorchannel closedoperation was canceledreceived unexpected message from connectionconnection closed before message completeddispatch task is goneupgrade expected but low level API in useno upgrade availableclient requires absolute-form URIsrequest has unsupported HTTP methodrequest has unsupported HTTP versionerror from user's Serviceuser body write abortederror from user's HttpBody streaminternal error inside Hyper and/or its dependencies, please reportinvalid HTTP status-code parsedmessage head is too largeunexpected transfer-encoding parsedinvalid content-length parsedinvalid HTTP header parsedURI too longinvalid URIinvalid HTTP version parsed (found HTTP2 preface)invalid HTTP version parsedinvalid HTTP method parsedhyper::Error`
+authority is valid
+authority_form with relative uri
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\aho-corasick-0.7.20\src\packed\api.rsC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\aho-corasick-0.7.20\src\automaton.rs
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\hyper-0.14.23\src\client\connect\http.rs
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\h2-0.3.15\src\client.rs
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\hyper-0.14.23\src\proto\h2\client.rs
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\hyper-0.14.23\src\client\conn.rs
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\hyper-0.14.23\src\client\pool.rs
+HTTP/2 connection in progressC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\hyper-0.14.23\src\client\client.rsALPN upgraded to HTTP/2
+authority implies host
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\hyper-0.14.23\src\client\connect\dns.rs
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\hyper-0.14.23\src\client\dispatch.rsenvelope not dropped
+error upgrading connectionerror decoding response bodyrequest or response body errorHTTP status client errorHTTP status server error
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\reqwest-0.11.14\src\async_impl\client.rs
+Client::new()
+reqwest::async_impl::client
+has_authority means set_username shouldn't failC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\reqwest-0.11.14\src\async_impl\request.rs
+has_authority means set_password shouldn't fail
+Invalid Server Namescheme and authority is valid Uri
+User-Agent: tunnel to  using basic auth
+Proxy-Authorization: 
+proxy headers too long for tunnelHTTP/1.1 407proxy authentication requiredunsuccessful tunnelunexpected eof while tunnelingreqwest::connect::verbose\
+unknown proxy schemehttps://
+http_proxyHTTPS_PROXYhttps_proxyREQUEST_METHODSoftware\Microsoft\Windows\CurrentVersion\Internet SettingsProxyEnableProxyServer=@
+presented server name type wasn't supported
+key expansionclient finishedserver finishedassertion failed: context.len() <= 0xffff
+derivedres masterexp masters ap trafficc ap traffics hs trafficc hs trafficc e trafficres binderEXPORTER_SECRETSERVER_TRAFFIC_SECRET_0CLIENT_TRAFFIC_SECRET_0SERVER_HANDSHAKE_TRAFFIC_SECRETCLIENT_HANDSHAKE_TRAFFIC_SECRETCLIENT_EARLY_TRAFFIC_SECRETC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\rustls-0.20.8\src\tls13\key_schedule.rs
+certificate transparency logs have expired, validation disabled
+TLS 1.3, client CertificateVerify
+TLS 1.3, server CertificateVerify
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\rustls-0.20.8\src\client\client_conn.rs
+rustls::client::client_conn
+rustls::client::commonC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\rustls-0.20.8\src\client\common.rs
+Client auth requested but no cert/sigscheme available
+Attempting client auth
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\rustls-0.20.8\src\client\handy.rs
+invalid private keyC:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\rustls-0.20.8\src\client\hs.rs
+rustls::client::hs
+Sending ClientHello 
+server sent non-offered ALPN protocolALPN protocol is 
+We got ServerHello 
+server chose v1.2 when offering 0-rttserver chose v1.2 using v1.3 extensionserver chose non-Null compressionserver sent duplicate extensionsserver sent unsolicited extensionserver does not support uncompressed pointsserver chose unusable ciphersuite for versionserver varied selected ciphersuiteUsing ciphersuite 
+server does not support TLS v1.2/v1.3server's TLS version is disabled in clientserver chose non-offered ciphersuite
+server requested hrr with our groupserver requested hrr with empty cookieserver sent hrr with unhandled extensionserver send duplicate hrr extensionsserver requested hrr with no changesserver requested unsupported version in hrrserver requested unsupported cs in hrrserver requested hrr with bad group
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\rustls-0.20.8\src\client\tls12.rsdowngrade to TLS1.2 when TLS1.3 is supportedServer supports tickets
+rustls::client::tls12::server_hello
+Server may staple OCSP response
+Server sent  SCTs
+server sent invalid SCT listServer agreed to resume
+abbreviated handshake offered, but with varied csserver varied ems support over resumeCLIENT_RANDOM
+Server stapled OCSP response is 
+rustls::client::tls12
+Server cert is 
+Server DNS name is 
+Session not saved: server didn't allocate id or ticket
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\rustls-0.20.8\src\client\tls13.rswrong group for key shareNot resuming
+rustls::client::tls13
+server selected unoffered pskserver varied suite with early dataserver selected invalid pskResuming using PSK
+server resuming incompatible suitemissing key shareserver sent unexpected cleartext extNo kx groups configured
+server sent duplicate encrypted extensionsserver sent unsolicited encrypted extensionserver sent inappropriate encrypted extension
+server sent early data extension without resumption
+Server sent non-empty certreq context
+server sent bad certreq schemes
+bad cert chain extensionsserver sent unsolicited SCT list
+ED448ED25519ECDSADSARSAAnonymousECDSAFixedECDHRSAFixedECDHECDSASignFortezzaDMSDSSEphemeralDHRSAEphemeralDHDSSFixedDHRSAFixedDHDSSSignRSASignLSZDeflateNullHeartbeatApplicationDataHandshakeAlertChangeCipherSpecMessageHashKeyUpdateCertificateStatusCertificateURLFinishedClientKeyExchangeCertificateVerifyServerHelloDoneCertificateRequestServerKeyExchangeEncryptedExtensionsHelloRetryRequestEndOfEarlyDataNewSessionTicketHelloVerifyRequestServerHelloClientHelloHelloRequestFatalWarningNoApplicationProtocolCertificateRequiredUnknownPSKIdentityBadCertificateHashValueBadCertificateStatusResponseUnrecognisedNameCertificateUnobtainableUnsupportedExtensionMissingExtensionNoRenegotiationUserCanceledInappropriateFallbackInternalErrorInsufficientSecurityProtocolVersionExportRestrictionDecryptErrorDecodeErrorAccessDeniedUnknownCAIllegalParameterCertificateUnknownCertificateExpiredCertificateRevokedUnsupportedCertificateBadCertificateNoCertificateHandshakeFailureDecompressionFailureRecordOverflowDecryptionFailedBadRecordMacUnexpectedMessageCloseNotifyRequestTransportParametersDraftRenegotiationInfoChannelIdNextProtocolNegotiationTransportParametersKeyShareSignatureAlgorithmsCertPostHandshakeAuthOIDFiltersCertificateAuthoritiesTicketEarlyDataInfoPSKKeyExchangeModesCookieSupportedVersionsEarlyDataPreSharedKeySessionTicketExtendedMasterSecretPaddingSCTALProtocolNegotiationUseSRTPSignatureAlgorithmsSRPECPointFormatsEllipticCurvesCertificateTypeServerAuthzClientAuthzUserMappingStatusRequestTruncatedHMACTrustedCAKeysClientCertificateUrlMaxFragmentLengthServerName
+OfferSignedCertificateTimestampCertificateStatusAckExtendedMasterSecretAckSessionTicketAckServerNameAckclient_versionrandomsession_idcipher_suitescompression_methods
+ClientHelloPayloadlegacy_versioncipher_suite
+ServerHelloPayload
+named_groupDigitallySignedStructschemesigpublicServerECDHParamscurve_params
+ECDHEServerKeyExchangeparams
+sigschemescanamesAuthorityNamesCertificateRequestPayloadTLS13
+http://
+https://chromedriver.storage.googleapis.com/
+mac-arm64windowsx86_64linuxmacosaarch64x86edgemsedgedriver\\Microsoft\\Edge\\Application\\msedge.exe\\Microsoft\\Edge Beta\\Application\\msedge.exe\\Microsoft\\Edge Dev\\Application\\msedge.exe\\Microsoft\\Edge SxS\\Application\\msedge.exe/Applications/Microsoft\ Edge.app/Contents/MacOS/Microsoft\ Edge/Applications/Microsoft\ Edge\ Beta.app/Contents/MacOS/Microsoft\ Edge\ Beta/Applications/Microsoft\ Edge\ Dev.app/Contents/MacOS/Microsoft\ Edge\ Dev/Applications/Microsoft\ Edge\ Canary.app/Contents/MacOS/Microsoft\ Edge\ Canarymicrosoft-edgemicrosoft-edge-betamicrosoft-edge-devHKCU\Software\Microsoft\Edge\BLBeaconhttps://msedgedriver.azureedge.net/
+[^\d^.](?:(\d+)\.)?(?:(\d+)\.)?(?:(\d+)\.\d+)firefoxgeckodriver\\Mozilla Firefox\\firefox.exe\\Firefox Developer Edition\\firefox.exe\\Firefox Nightly\\firefox.exe/Applications/Firefox.app/Contents/MacOS/firefox/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox/Applications/Firefox\ Nightly.app/Contents/MacOS/firefoxfirefox-trunk{} -vhttps://github.com/mozilla/geckodriver/releases/
+linux32linux-arm64iexplorerIEDriverServerhttps://github.com/SeleniumHQ/selenium/releases/
+download/selenium-/IEDriverServer_Win32_@
+iedriverserverInvalid driver name: 
+api-ms-win-core-synch-l1-2-0
+strings passed to WinAPI cannot contain NULs
+	UnsupportedSignatureAlgorithmUnsupportedSignatureAlgorithmForPublicKeyUnsupportedCriticalExtensionMissingOrMalformedExtensionsUnsupportedCertVersionUnknownIssuerRequiredEkuNotFoundSignatureAlgorithmMismatchPathLenConstraintViolatedNameConstraintViolationInvalidSignatureForPublicKeyInvalidCertValidityExtensionValueInvalidEndEntityUsedAsCaCertNotValidYetCertNotValidForNameCertExpiredCaUsedAsEndEntityBadDerTimeBadDerDnsName`
+0(c) 2012 Entrust, Inc. - for authorized use only1301
+*Entrust Root Certification Authority - EC10
+COMODO Certification Authority0
+)Starfield Class 2 Certification Authority0
+"COMODO ECC Certification Authority0
++SSL.com EV Root Certification Authority ECC0

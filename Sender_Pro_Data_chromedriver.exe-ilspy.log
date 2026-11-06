@@ -1,0 +1,6 @@
+ICSharpCode.Decompiler.Metadata.MetadataFileNotSupportedException: PE file does not contain any managed metadata.
+   at ICSharpCode.Decompiler.Metadata.MetadataFile..ctor(MetadataFile.MetadataFileKind, String, PEReader, MetadataReaderOptions, MetadataStringDecoder) + 0xed
+   at ICSharpCode.ILSpyCmd.InputFileLoader.LoadMetadata(String fileName, String entryName, Boolean applyWinRTProjections) + 0xf6
+   at ICSharpCode.ILSpyCmd.InputFileLoader.Load(String fileName, String entryName, Boolean applyWinRTProjections) + 0x17
+   at ICSharpCode.ILSpyCmd.ILSpyCmdProgram.DecompileAsProject(String assemblyFileName, String projectFileName) + 0x46
+   at ICSharpCode.ILSpyCmd.ILSpyCmdProgram.<OnExecuteAsync>d__118.MoveNext() + 0x69e

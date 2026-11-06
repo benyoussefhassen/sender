@@ -1,0 +1,28 @@
+AreFileApisANSI
+ADVAPI32.dll
+      <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
+<N2/ApI
+Cryptodome.Util._raw_api)
+charset_normalizer.api)
+http.client)
+http.server)
+multiprocessing.forkserver)
+ multiprocessing.popen_forkserver)
+requests.api)
+requests.auth)
+socketserver)
+sqlite3.dbapi2)
+websockets.asyncio.client)
+websockets.asyncio.server)
+websockets.auth)
+websockets.client)
+websockets.legacy.auth)
+websockets.legacy.client)
+websockets.legacy.server)
+websockets.server)
+websockets.sync.client)
+websockets.sync.server)
+xmlrpc.client)
+yt_dlp.extractor.radiokapital)
+yt_dlp.extractor.zapiks)
+bwebsockets-15.0.dist-info\LICENSE

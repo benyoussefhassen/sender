@@ -1,0 +1,100 @@
+ATASAQAPI
+ t+PASAPI
+t:ATAPI
+t6ATAPI
+t6ATAPI
+ATASAQAPI
+ASSAQAPI
+:authoriH;
+authorizH;
+API+AHH
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// Surprisingly, this is still API compatible as far as third parties are
+// ClientRequest.onSocket(). The Agent is now *strictly*
+  // Legacy API: addRequest(req, host, port, localAddress)
+  if (!options.servername && options.servername !== '')
+    options.servername = calculateServerName(options, req);
+  if (!options.servername && options.servername !== '')
+    options.servername = calculateServerName(options, req);
+function calculateServerName(options, req) {
+  let servername = options.host;
+        servername = hostHeader;
+        servername = StringPrototypeSubstr(hostHeader, 1, index - 1);
+      servername = StringPrototypeSplit(hostHeader, ':', 1)[0];
+  // Don't implicitly set invalid (IP) servernames.
+  if (net.isIP(servername))
+    servername = '';
+  return servername;
+    debug('CLIENT socket onFree');
+    debug('CLIENT socket onClose');
+    debug('CLIENT socket onTimeout');
+    debug('CLIENT socket onRemove');
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DTRACE_HTTP_CLIENT_REQUEST,
+  DTRACE_HTTP_CLIENT_RESPONSE
+  hasObserver,
+const kClientRequestStatistics = Symbol('ClientRequestStatistics');
+const onClientRequestStartChannel = dc.channel('http.client.request.start');
+const onClientResponseFinishChannel = dc.channel('http.client.response.finish');
+const HTTP_CLIENT_TRACE_EVENT_NAME = 'http.client.request';
+class HTTPClientAsyncResource {
+function ClientRequest(input, options, cb) {
+      // Refs: https://github.com/nodejs/node/pull/30958
+      // https://tools.ietf.org/html/rfc3986#section-3.2.2
+    if (options.auth && !this.getHeader('Authorization')) {
+      this.setHeader('Authorization', 'Basic ' +
+                     Buffer.from(options.auth).toString('base64'));
+      debug('CLIENT use net.createConnection', optsWithoutSignal);
+ObjectSetPrototypeOf(ClientRequest.prototype, OutgoingMessage.prototype);
+ObjectSetPrototypeOf(ClientRequest, OutgoingMessage);
+ClientRequest.prototype._finish = function _finish() {
+  DTRACE_HTTP_CLIENT_REQUEST(this, this.socket);
+  if (hasObserver('http')) {
+    startPerf(this, kClientRequestStatistics, {
+      name: 'HttpClient',
+  if (onClientRequestStartChannel.hasSubscribers) {
+    onClientRequestStartChannel.publish({
+    traceBegin(HTTP_CLIENT_TRACE_EVENT_NAME, this._traceEventId);
+ClientRequest.prototype._implicitHeader = function _implicitHeader() {
+ClientRequest.prototype.abort = function abort() {
+ClientRequest.prototype.destroy = function destroy(err) {
+             // the server will send a final response after this client
+// client
+function parserOnIncomingClient(res, shouldKeepAlive) {
+    // We already have a response object, this means the server
+    // Server MUST respond with Connection:keep-alive for us to enable it.
+  DTRACE_HTTP_CLIENT_RESPONSE(socket, req);
+  if (req[kClientRequestStatistics] && hasObserver('http')) {
+    stopPerf(req, kClientRequestStatistics, {
+  if (onClientResponseFinishChannel.hasSubscribers) {
+    onClientResponseFinishChannel.publish({
+    traceEnd(HTTP_CLIENT_TRACE_EVENT_NAME, req._traceEventId, {
+// client
+// from server before we finish sending out the request
+                    new HTTPClientAsyncResource('HTTPINCOMINGMESSAGE', req),
+  parser.onIncoming = parserOnIncomingClient;
+ClientRequest.prototype.onSocket = function onSocket(socket, err) {
+ClientRequest.prototype._deferToConnect = _deferToConnect;
+ClientRequest.prototype.setTimeout = function setTimeout(msecs, callback) {
+ClientRequest.prototype.setNoDelay = function setNoDelay(noDelay) {
+ClientRequest.prototype.setSocketKeepAlive =
+ClientRequest.prototype.clearTimeout = function clearTimeout(cb) {
+  ClientRequest
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  // Parser is also used by http client
+  const ParserIncomingMessage = (socket && socket.server &&
+                                 socket.server[kIncomingMessage]) ||
+  incoming.joinDuplicateHeaders = socket?.server?.joinDuplicateHeaders ||
+    // server only
+    // client only
+ * See https://tools.ietf.org/html/rfc7230#section-3.2.6
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+/* Abstract base class for ServerRequest and ClientResponse. */
+  // request (server) only
+  // response (client) only
+  this.client = socket;
+// Ref: https://bugs.chromium.org/p/v8/issues/detail?id=10201
