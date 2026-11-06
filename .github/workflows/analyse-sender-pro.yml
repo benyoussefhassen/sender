@@ -118,10 +118,13 @@ jobs:
             printf 'Nombre de DLL : %s\n' "$(find extracted -type f -iname '*.dll' ! -path '*/__MACOSX/*' | wc -l)"
           } >> reports/RAPPORT_TECHNIQUE.md
 
-      - name: Publier le rapport comme artefact (sans republier les exécutables)
-        uses: actions/upload-artifact@v4
-        with:
-          name: sender-pro-rapport-technique-v2
-          path: reports/
-          if-no-files-found: error
-          retention-days: 14
+
+                - name: Publier les rapports et les sources décompilées
+                  uses: actions/upload-artifact@v4
+                  with:
+                    name: sender-pro-analyse-complete-v3
+                    path: |
+                      reports/
+                      decompiled/
+                    if-no-files-found: error
+                    retention-days: 14
