@@ -28,8 +28,8 @@ jobs:
           sudo apt-get install -y p7zip-full file binutils
           mkdir -p extracted reports decompiled
           7z x Archive.zip -oextracted -y
-          find extracted -type f -iname '*.exe' -print | sort > reports/executables.txt
-          find extracted -type f \( -iname '*.dll' -o -iname '*.config' -o -iname '*.json' -o -iname '*.ini' \) -print | sort > reports/dependencies.txt
+          find extracted -type f -iname '*.exe' ! -path '*/__MACOSX/*' -print | sort > reports/executables.txt
+          find extracted -type f \( -iname '*.dll' -o -iname '*.config' -o -iname '*.json' -o -iname '*.ini' \) ! -path '*/__MACOSX/*' -print | sort > reports/dependencies.txt
           if [ ! -s reports/executables.txt ]; then
             echo "Aucun fichier .exe trouvé dans Archive.zip." | tee reports/ERREUR.txt
             exit 1
@@ -40,13 +40,14 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Inventaire et décompilation locale
+      - name: Inventaire, décompilation et analyse ciblée
         shell: bash
         run: |
           set -euo pipefail
           dotnet tool install --global ilspycmd
           echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
           export PATH="$HOME/.dotnet/tools:$PATH"
+
           {
             echo "# Rapport technique Sender Pro"
             echo
@@ -54,47 +55,73 @@ jobs:
             echo "SHA256 vérifié avant extraction."
             echo
             echo "## Exécutables détectés"
-            while IFS= read -r exe; do
+          } > reports/RAPPORT_TECHNIQUE.md
+
+          while IFS= read -r exe; do
+            rel="${exe#extracted/}"
+            safe="$(printf '%s' "$rel" | sed 's#[/ ]#_#g' | tr -cd '[:alnum:]_.-')"
+            out="decompiled/$safe"
+            mkdir -p "$out"
+            {
               echo
-              echo "### $exe"
+              echo "### $rel"
               stat -c 'Taille : %s octets' "$exe"
               sha256sum "$exe"
               file "$exe"
               if file "$exe" | grep -qi 'PE32'; then
                 objdump -f "$exe" 2>/dev/null | head -8 || true
               fi
-              safe="$(basename "$exe" | tr -cd '[:alnum:]_.-')"
-              out="decompiled/$safe"
-              mkdir -p "$out"
-              if ilspycmd -p -o "$out" "$exe" >"reports/$safe-ilspy.log" 2>&1; then
-                echo "Décompilation ILSpy : OK"
-              else
-                echo "Décompilation ILSpy : échec (voir log)"
-                tail -20 "reports/$safe-ilspy.log" || true
-              fi
-            done < reports/executables.txt
+            } >> reports/RAPPORT_TECHNIQUE.md
+
+            if ilspycmd -p -o "$out" "$exe" >"reports/$safe-ilspy.log" 2>&1; then
+              echo "Décompilation ILSpy : OK" >> reports/RAPPORT_TECHNIQUE.md
+            else
+              echo "Décompilation ILSpy : échec (voir log)" >> reports/RAPPORT_TECHNIQUE.md
+              tail -8 "reports/$safe-ilspy.log" >> reports/RAPPORT_TECHNIQUE.md || true
+            fi
+
+            # Pour les binaires natifs, collecter des chaînes indicatives sans prétendre les décompiler.
+            if ! grep -q 'Mono/.Net assembly' <(file "$exe"); then
+              strings -a -n 7 "$exe" 2>/dev/null |
+                grep -iE 'https?://|login|auth|license|licence|subscription|expire|activation|serial|api|server|client' |
+                head -100 > "reports/$safe-strings.txt" || true
+            fi
+          done < reports/executables.txt
+
+          {
             echo
             echo "## Dépendances (DLL / CONFIG / JSON / INI)"
             cat reports/dependencies.txt
             echo
             echo "## Indices de connexion, licence et abonnement"
-            echo "Les valeurs pouvant être des secrets sont masquées autant que possible."
-          } > reports/RAPPORT_TECHNIQUE.md
+            echo "Extraits de recherche uniquement ; les valeurs ressemblant à des secrets sont masquées."
+          } >> reports/RAPPORT_TECHNIQUE.md
 
-          # Chercher les zones de code pertinentes sans publier le code source complet.
-          if [ -d decompiled ]; then
-            grep -RniE --include='*.cs' --include='*.json' --include='*.config'               'login|sign.?in|auth|token|license|licence|subscription|subscribe|expire|expiration|activation|serial|machine.?id|device.?id|api.?key|password|billing|plan|premium|trial|offline'               decompiled 2>/dev/null               | sed -E 's/((api.?key|password|secret|token|authorization)[^:=]*[:=][[:space:]]*)[^,;"]+/\1[MASQUÉ]/Ig'               | cut -c1-500               | head -1500 >> reports/RAPPORT_TECHNIQUE.md || true
-          fi
+          grep -RniE --include='*.cs' --include='*.json' --include='*.config'             'login|sign.?in|auth|token|license|licence|subscription|subscribe|expire|expiration|activation|serial|machine.?id|device.?id|api.?key|password|billing|plan|premium|trial|offline|IsClientAuth|TimeToExpire|IsExpire|TB_Serial|Login_Is_Good'             decompiled 2>/dev/null |
+            sed -E 's/((api.?key|password|secret|token|authorization)[^:=]*[:=][[:space:]]*)[^,;"]+/\1[MASQUÉ]/Ig' |
+            cut -c1-500 | head -2000 >> reports/RAPPORT_TECHNIQUE.md || true
+
           echo >> reports/RAPPORT_TECHNIQUE.md
-          echo "## Résumé des fichiers" >> reports/RAPPORT_TECHNIQUE.md
-          find extracted -type f | wc -l | xargs printf 'Nombre total de fichiers : %s\n' >> reports/RAPPORT_TECHNIQUE.md
-          find extracted -type f -iname '*.exe' | wc -l | xargs printf 'Nombre de fichiers EXE : %s\n' >> reports/RAPPORT_TECHNIQUE.md
-          find extracted -type f -iname '*.dll' | wc -l | xargs printf 'Nombre de DLL : %s\n' >> reports/RAPPORT_TECHNIQUE.md
+          echo "## Chaînes indicatives des exécutables natifs" >> reports/RAPPORT_TECHNIQUE.md
+          for f in reports/*-strings.txt; do
+            [ -f "$f" ] || continue
+            echo >> reports/RAPPORT_TECHNIQUE.md
+            echo "### $(basename "$f")" >> reports/RAPPORT_TECHNIQUE.md
+            cat "$f" >> reports/RAPPORT_TECHNIQUE.md
+          done
+
+          {
+            echo
+            echo "## Résumé des fichiers"
+            printf 'Nombre total de fichiers : %s\n' "$(find extracted -type f ! -path '*/__MACOSX/*' | wc -l)"
+            printf 'Nombre de fichiers EXE : %s\n' "$(find extracted -type f -iname '*.exe' ! -path '*/__MACOSX/*' | wc -l)"
+            printf 'Nombre de DLL : %s\n' "$(find extracted -type f -iname '*.dll' ! -path '*/__MACOSX/*' | wc -l)"
+          } >> reports/RAPPORT_TECHNIQUE.md
 
       - name: Publier le rapport comme artefact (sans republier les exécutables)
         uses: actions/upload-artifact@v4
         with:
-          name: sender-pro-rapport-technique
+          name: sender-pro-rapport-technique-v2
           path: reports/
           if-no-files-found: error
           retention-days: 14
