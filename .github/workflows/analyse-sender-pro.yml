@@ -1,0 +1,100 @@
+name: Analyse technique Sender Pro
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analyse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Télécharger Archive.zip depuis la Release v1.0
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="https://github.com/benyoussefhassen/sender/releases/download/v1.0/Archive.zip"
+          curl -fL --retry 3 --retry-delay 5 "$URL" -o Archive.zip
+          echo "Taille téléchargée : $(du -h Archive.zip | cut -f1)"
+          echo "01c0cd502c839fd0f7e05d0485ff7815264a3fcab2578110045e3701681087b9  Archive.zip" | sha256sum -c -
+
+      - name: Extraire les fichiers Windows
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full file binutils
+          mkdir -p extracted reports decompiled
+          7z x Archive.zip -oextracted -y
+          find extracted -type f -iname '*.exe' -print | sort > reports/executables.txt
+          find extracted -type f \( -iname '*.dll' -o -iname '*.config' -o -iname '*.json' -o -iname '*.ini' \) -print | sort > reports/dependencies.txt
+          if [ ! -s reports/executables.txt ]; then
+            echo "Aucun fichier .exe trouvé dans Archive.zip." | tee reports/ERREUR.txt
+            exit 1
+          fi
+
+      - name: Préparer ILSpy
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Inventaire et décompilation locale
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet tool install --global ilspycmd
+          echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+          export PATH="$HOME/.dotnet/tools:$PATH"
+          {
+            echo "# Rapport technique Sender Pro"
+            echo
+            echo "Archive : Release v1.0 / Archive.zip"
+            echo "SHA256 vérifié avant extraction."
+            echo
+            echo "## Exécutables détectés"
+            while IFS= read -r exe; do
+              echo
+              echo "### $exe"
+              stat -c 'Taille : %s octets' "$exe"
+              sha256sum "$exe"
+              file "$exe"
+              if file "$exe" | grep -qi 'PE32'; then
+                objdump -f "$exe" 2>/dev/null | head -8 || true
+              fi
+              safe="$(basename "$exe" | tr -cd '[:alnum:]_.-')"
+              out="decompiled/$safe"
+              mkdir -p "$out"
+              if ilspycmd -p -o "$out" "$exe" >"reports/$safe-ilspy.log" 2>&1; then
+                echo "Décompilation ILSpy : OK"
+              else
+                echo "Décompilation ILSpy : échec (voir log)"
+                tail -20 "reports/$safe-ilspy.log" || true
+              fi
+            done < reports/executables.txt
+            echo
+            echo "## Dépendances (DLL / CONFIG / JSON / INI)"
+            cat reports/dependencies.txt
+            echo
+            echo "## Indices de connexion, licence et abonnement"
+            echo "Les valeurs pouvant être des secrets sont masquées autant que possible."
+          } > reports/RAPPORT_TECHNIQUE.md
+
+          # Chercher les zones de code pertinentes sans publier le code source complet.
+          if [ -d decompiled ]; then
+            grep -RniE --include='*.cs' --include='*.json' --include='*.config'               'login|sign.?in|auth|token|license|licence|subscription|subscribe|expire|expiration|activation|serial|machine.?id|device.?id|api.?key|password|billing|plan|premium|trial|offline'               decompiled 2>/dev/null               | sed -E 's/((api.?key|password|secret|token|authorization)[^:=]*[:=][[:space:]]*)[^,;"]+/\1[MASQUÉ]/Ig'               | cut -c1-500               | head -1500 >> reports/RAPPORT_TECHNIQUE.md || true
+          fi
+          echo >> reports/RAPPORT_TECHNIQUE.md
+          echo "## Résumé des fichiers" >> reports/RAPPORT_TECHNIQUE.md
+          find extracted -type f | wc -l | xargs printf 'Nombre total de fichiers : %s\n' >> reports/RAPPORT_TECHNIQUE.md
+          find extracted -type f -iname '*.exe' | wc -l | xargs printf 'Nombre de fichiers EXE : %s\n' >> reports/RAPPORT_TECHNIQUE.md
+          find extracted -type f -iname '*.dll' | wc -l | xargs printf 'Nombre de DLL : %s\n' >> reports/RAPPORT_TECHNIQUE.md
+
+      - name: Publier le rapport comme artefact (sans republier les exécutables)
+        uses: actions/upload-artifact@v4
+        with:
+          name: sender-pro-rapport-technique
+          path: reports/
+          if-no-files-found: error
+          retention-days: 14
